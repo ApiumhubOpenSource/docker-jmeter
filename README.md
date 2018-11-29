@@ -9,9 +9,7 @@ docker build . -t apium-jmeter:3.3
 ```
 
 ```bash
-run -d -v $(pwd)/example:/input apium-jmeter:3.3
+docker run -v $(pwd)/example:/input apium-jmeter:3.3
 ```
 
 Output would be at /output folder inside the container.
-
-Check the tests in /test folder for more examples.
