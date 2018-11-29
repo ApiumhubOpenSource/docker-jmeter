@@ -1,15 +1,15 @@
-# Jmeter 3.3
+# Jmeter 4.0
 
 Runs JMX file and complains if any assertion is not passed.
 
 ## USAGE
 
 ```bash
-docker build . -t apium-jmeter:3.3
+docker build . -t apium-jmeter:4.0
 ```
 
 ```bash
-run -d -v $(pwd)/example:/input apium-jmeter:3.3
+docker run -v $(pwd)/example:/input apium-jmeter:4.0
 ```
 
 Output would be at /output folder inside the container.
