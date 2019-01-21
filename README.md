@@ -13,6 +13,3 @@ docker run -v $(pwd)/example:/input apium-jmeter:5.0
 ```
 
 Output would be at /output folder inside the container.
-
-## DOCU
-WIP
