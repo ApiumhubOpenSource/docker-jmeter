@@ -14,5 +14,9 @@ docker run -v $(pwd)/example:/input apium-jmeter:5.0
 
 Output would be at /output folder inside the container.
 
-## DOCU
-WIP 
+## TIPS
+
+When extending the image for adding extra files, you can also edit the CMD to allow jmeter run extra params this way:
+```
+CMD ["bash", "jmx-runner.sh", "-Jenvironment=staging"]
+```

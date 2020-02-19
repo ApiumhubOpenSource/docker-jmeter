@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -xeuo pipefail
+
+extra_param=${1:-}
 
 readonly RESULT_FILE="/output/jmeter-report.log"
 
 echo ""
-echo "RUNNING JMETER: $ENVIRONMENT"
-if [ -z "$1" ]; then
-	${JMETER_BIN} -Jjmeter.save.saveservice.response_data=true -Jjmeter.save.saveservice.output_format=xml -n -t /input/test.jmx -l "$RESULT_FILE"
-else
-	${JMETER_BIN} "$1" -Jjmeter.save.saveservice.response_data=true -Jjmeter.save.saveservice.output_format=xml -n -t /input/test.jmx -l "$RESULT_FILE"
-fi
+echo "RUNNING JMETER"
+${JMETER_BIN} $extra_param -Jjmeter.save.saveservice.response_data=true -Jjmeter.save.saveservice.output_format=xml -n -t /input/test.jmx -l "$RESULT_FILE"
 echo ""
 echo "VALIDATING RESULTS:"
 
