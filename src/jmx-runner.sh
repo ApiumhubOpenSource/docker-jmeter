@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-
-ENVIRONMENT="${1:- }"
+DUMMY = ""
+ENVIRONMENT=${1:-"$DUMMY"}
 readonly RESULT_FILE="/output/jmeter-report.log"
 
 echo ""
