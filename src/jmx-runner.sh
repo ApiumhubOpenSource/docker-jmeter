@@ -2,7 +2,7 @@
 
 set -eo pipefail
 set -u
-ENVIRONMENT="${1:-}"
+ENVIRONMENT=${1:-}
 readonly RESULT_FILE="/output/jmeter-report.log"
 
 echo ""
