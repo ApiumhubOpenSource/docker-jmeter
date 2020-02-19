@@ -2,14 +2,15 @@
 
 set -euo pipefail
 
-ENVIRONMENT=${1:-" "}
 readonly RESULT_FILE="/output/jmeter-report.log"
 
 echo ""
 echo "RUNNING JMETER: $ENVIRONMENT"
-
-${JMETER_BIN} ${ENVIRONMENT} -Jjmeter.save.saveservice.response_data=true -Jjmeter.save.saveservice.output_format=xml -n -t /input/test.jmx -l "$RESULT_FILE"
-
+if [ -z "$1" ]; then
+	${JMETER_BIN} -Jjmeter.save.saveservice.response_data=true -Jjmeter.save.saveservice.output_format=xml -n -t /input/test.jmx -l "$RESULT_FILE"
+else
+	${JMETER_BIN} "$1" -Jjmeter.save.saveservice.response_data=true -Jjmeter.save.saveservice.output_format=xml -n -t /input/test.jmx -l "$RESULT_FILE"
+fi
 echo ""
 echo "VALIDATING RESULTS:"
 
