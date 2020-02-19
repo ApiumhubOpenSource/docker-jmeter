@@ -6,7 +6,7 @@ ENVIRONMENT=${1:-"$DUMMY"}
 readonly RESULT_FILE="/output/jmeter-report.log"
 
 echo ""
-echo "RUNNING JMETER:"
+echo "RUNNING JMETER: $ENVIRONMENT"
 
 ${JMETER_BIN} "$ENVIRONMENT" -Jjmeter.save.saveservice.response_data=true -Jjmeter.save.saveservice.output_format=xml -n -t /input/test.jmx -l "$RESULT_FILE"
 
